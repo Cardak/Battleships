@@ -11,7 +11,7 @@ namespace Battleships
         cell[,] grid = new cell[10, 10];
         List<ship> ships = new List<ship>();
 
-        private void addShips()
+        public void addShips()
         {
             for (int i = 0; i < ships.Count; i++)
             {
@@ -37,6 +37,33 @@ namespace Battleships
                     }
                 }
             }
+        }
+
+        public void setShips(List<ship> shis)
+        {
+            ships = shis;
+        }
+
+        public List<ship> getShips()
+        {
+            return ships;
+        }
+
+        public string hitCells()
+        {
+            string temp = "";
+            for (int i = 0; i < 10; i++)
+            {
+                for (int i2 = 0; i2 < 10; i2++)
+                {
+                    if (grid[i, i2].hit)
+                    {
+                        temp = temp + ((char)(65 + i)).ToString() + (i2).ToString();
+                    }
+
+                }
+            }
+            return temp;
         }
 
         public void generateShips()

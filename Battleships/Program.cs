@@ -16,6 +16,7 @@ namespace Battleships
             AigameBoard.generateCells();
             AigameBoard.generateShips();
             AigameBoard.writeBoard();
+            
             while (!AigameBoard.allSunk())
              {
                  Console.WriteLine("Enter a square to shoot");
@@ -34,6 +35,14 @@ namespace Battleships
                         x++;
                     }
                     AigameBoard.writeBoard();
+                }
+                else if(input == "save"){
+                    //Console.WriteLine("Enter a Path");
+                    new fileIO("gamesave.bss").WriteBoard(AigameBoard);
+                }
+                else if(input == "load")
+                {
+                    AigameBoard = (new fileIO("gamesave.bss").LoadBoard());
                 }
                 else
                 {
